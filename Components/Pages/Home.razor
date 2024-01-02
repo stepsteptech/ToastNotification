@@ -1,0 +1,44 @@
+﻿@page "/"
+@using ToastNotification.Extentions
+@inject IJSRuntime jsruntime
+@rendermode InteractiveServer
+<PageTitle>Home</PageTitle>
+<div class="jumbotron jumbotron-fluid bg-info mb-5 p-5">
+    <h1 class="display-4">Toast Notification Examples in Blazor .NET8</h1>
+    <p class="lead">In this example, you will learn how to work with notifications in Blazer.NET 8</p>
+    <hr class="my-4">
+    <p>A simple example that can be easily customized</p>
+    <p class="lead">
+        For support and to see more videos, please follow my YouTube channel
+        <a href="github.com/stepsteptech">Subscribe!</a>
+        <br />
+        see the Video tutorial <a href="https://youtu.be/yG_sY-CDvXY">here</a>
+    </p>
+    <p class="lead">
+        For The Source Code Check The <a href="https://github.com/stepsteptech">GitHub</a> Repository
+    </p>
+</div>
+
+<span class="bi bi-house" aria-hidden="true"></span>
+
+<button class="btn btn-success btn-lg" @onclick="ShowSuccessToast">ShowSuccessToast</button>
+<button class="btn btn-danger btn-lg" @onclick="ShowErrorToast">ShowErrorToast</button>
+
+@code
+{
+    public async Task ShowSuccessToast()
+    {
+
+        //put your logic here
+
+        await jsruntime.ToastrSuccess("Hello from success toast message");
+
+    }
+    public async Task ShowErrorToast()
+    {
+        //put your logic here
+
+        await jsruntime.ToastrError("Hello from Error Toast Message");
+
+    }
+}
